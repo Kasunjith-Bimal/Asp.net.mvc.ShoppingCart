@@ -1,0 +1,175 @@
+﻿@model classdemotoday.Areas.Common.Models.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateShop</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <center><h4>Create Your Shop </h4></center>
+           
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.ShopName, htmlAttributes: new { @class = "col-lg-offset-3 col-md-2" })
+                </div>
+               
+                <div class="row">
+                    <div class="col-lg-offset-3 col-md-5">
+                        @Html.EditorFor(model => model.ShopName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShopName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.ShopAddress, htmlAttributes: new { @class = "col-lg-offset-3 col-md-2" })
+                </div>
+              
+                <div class="row">
+                  
+                
+                    <div class="col-lg-offset-3 col-md-5">
+                        @Html.EditorFor(model => model.ShopAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShopAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.ShopEmaill, htmlAttributes: new { @class = "col-lg-offset-3 col-md-2" })
+                </div>
+               
+                <div class="row">
+                   
+                
+                    <div class="col-lg-offset-3 col-md-5">
+                        @Html.EditorFor(model => model.ShopEmaill, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShopEmaill, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.ShopTelephoneNumber, htmlAttributes: new { @class = "col-lg-offset-3 col-md-2" })
+                </div>
+              
+
+                <div class="row">
+                  
+
+                    <div class="col-lg-offset-3 col-md-5">
+                        @Html.EditorFor(model => model.ShopTelephoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShopTelephoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.ShopUserName, htmlAttributes: new { @class = "col-lg-offset-3 col-md-2" })
+                </div>
+               
+                <div class="row">
+                    
+
+               
+                    <div class="col-lg-offset-3 col-md-5">
+                        @Html.EditorFor(model => model.ShopUserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShopUserName, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.ShopPassword, htmlAttributes: new { @class = "col-lg-offset-3 col-md-2" })
+                </div>
+               
+                <div class="row">
+                    
+                
+                    <div class="col-lg-offset-3 col-md-5">
+                        @Html.EditorFor(model => model.ShopPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ShopPassword, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+               
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "col-lg-offset-3 col-md-2" })
+                </div>
+               
+                <div class="row">
+
+                
+
+                    <div class="col-lg-offset-3 col-md-5">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Active.Value)
+                            @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.LoginType, htmlAttributes: new { @class = "col-lg-offset-3 col-md-2" })
+                </div>
+              
+                <div class="row">
+                    
+               
+                    <div class="col-lg-offset-3 col-md-5">
+                        @Html.EditorFor(model => model.LoginType, new { htmlAttributes = new { @class = "form-control" }})
+                        @Html.ValidationMessageFor(model => model.LoginType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+              
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-offset-3 col-md-5">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

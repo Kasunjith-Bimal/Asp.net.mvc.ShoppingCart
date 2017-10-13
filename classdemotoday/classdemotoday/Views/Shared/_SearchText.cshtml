@@ -1,0 +1,21 @@
+﻿
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+<div class="form-inline form-horizontal">
+   
+    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+    
+        @Html.TextBox("searchstring", @Request.QueryString["searchstring"], new { @class = "form-control" })
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-9">
+   @Html.DropDownList("Searchcriteria", (IEnumerable<SelectListItem>)ViewBag.Data, "Select All Category", new { @class = "form-control" })
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+        <button type="submit" class="btn btn-info">
+            <span class="glyphicon glyphicon-search"></span> 
+        </button>
+    </div>
+</div>
+}

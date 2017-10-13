@@ -1,0 +1,46 @@
+﻿@model classdemotoday.Models.ViewModels.HomePageViewModel
+@using PagedList;
+@using PagedList.Mvc;
+
+
+<div class="row" >
+
+
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="row">
+            @{Html.RenderPartial("_sideCategoryNavigation", Model.SidenavbarCategory);}
+        </div>
+        <div class="row">
+
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                @*@{Html.RenderPartial("_sortlist");}*@
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+        @{Html.RenderPartial("_banner");}
+    </div>
+    <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+        @{Html.RenderPartial("_sortlist");}
+    </div>
+    <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+        @{Html.RenderPartial("_homeItems", Model.Items);}
+        
+    <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+        @Html.PagedListPager(Model.Items, itemPage => Url.Action("Index", new
+                                                                {
+                                                                    itemPage,
+                                                                    categoryid =Request.QueryString["categoryid"],
+                                                                    cateory = Request.QueryString["categoryId"],
+                                                                    catPage = Request.QueryString["catPage"],
+                                                                    searchcriteria = Request.QueryString["searchcriteria"],
+                                                                    searchstring = Request.QueryString["searchstring"]
+                                                                }))
+
+
+    </div>
+    </div>
+
+</div>

@@ -1,0 +1,160 @@
+﻿@model classdemotoday.Areas.Common.Models.ItemDetail
+@{
+    Layout =null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Items.css" rel="stylesheet" />
+    <style>
+
+         .singleItemBlock {
+        text-align: left !important;
+        border: 4px #ffffff solid !important;
+        max-height:1000px;
+        border-radius: 5px;
+    }
+
+        .singleItemBlock .itemName {
+            
+            max-height: 100px;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        .singleItemBlock .itemDescription {
+          
+            max-height: 100px;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        .singleItemBlock .itemPrice {
+          
+            max-height: 100px;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        .singleItemBlock .itemAddToCart {
+          
+            max-height: 40px;
+            margin-bottom:5px;
+        }
+        .images360{
+
+            /*border:4px solid #ffffff;*/
+            border-right:4px solid #808080;
+            border-left:4px solid #808080;
+        }
+    </style>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/3deye.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#demo").vc3dEye({
+                imagePath:'@ViewBag.ImageUrls', // the location where you’ve put the images.
+                totalImages: @ViewBag.counts, // the number of images you have.
+                imageExtension: "png" // the extension of the images. Make sure all the images have same extension.
+            });
+
+        });
+
+    </script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+
+            <img src="~/Photos/logo (1).png" />
+        </div>
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+            @{Html.RenderPartial("_SearchText");}
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+            @{Html.RenderPartial("_Cart");}
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 images360">
+            <div id="demo">
+
+            </div>
+
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 singleItemBlock">
+            <div class="col-lg-12">
+                Description:
+            </div>
+            <div class="col-lg-12 itemDescription" style="font-size:35px"> 
+                @Model.Description
+                <hr />
+            </div>
+            <div class="col-lg-12">
+                Item Name:
+            </div>
+            <div class="col-lg-12 itemName" style="font-size:35px">
+                @Model.Name
+                <hr />
+            </div>
+            <div class="col-lg-12">
+                Unit Price:
+            </div>
+            <div class="col-lg-12 itemPrice" style="font-size:35px">
+                @Model.UnitPrice
+                <hr />
+            </div>
+            <div class="col-lg-12 itemAddToCart">
+                @using (Html.BeginForm("AddtoCart", "Cart", FormMethod.Post))
+                {
+                    <input type="hidden" value="@Model.Id" name="Itemid" id="Itemid" />
+                    <button type="submit" value="ADD TO CART" class="btn btn-info">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> ADD TO CART
+                    </button>
+
+                }
+            </div>
+            <div class="col-lg-12 itemAddToCart">
+
+
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                {
+                    <button type="submit" class="btn btn-success">
+                        Continue Shopping
+                    </button>
+                }
+            </div>
+        </div>
+       
+    </div>
+
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+

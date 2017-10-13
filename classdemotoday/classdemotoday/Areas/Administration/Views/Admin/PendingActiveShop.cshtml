@@ -1,0 +1,81 @@
+﻿@model IEnumerable<classdemotoday.Areas.Common.Models.Login>
+
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopEmaill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopTelephoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoginType)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShopName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShopAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShopEmaill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShopTelephoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShopUserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShopPassword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoginType)
+                
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit",new { id = item.ShopId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ShopId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ShopId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+

@@ -1,0 +1,166 @@
+﻿@model classdemotoday.Models.ViewModels.ShopViewModel
+@{
+    Layout = null;
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+@*< script src = "~/Scripts/jquery-1.10.2.js" ></ script >
+< script src = "~/Scripts/jquery.unobtrusive-ajax.js" ></ script >
+< script src = "~/Scripts/jquery.validate.js" ></ script >
+< script src = "~/Scripts/jquery.validate.unobtrusive.js" ></ script >
+< script src = "~/Scripts/EditShopDetailsValidation.js" ></ script >
+< script src = "~/Scripts/Script.js" ></ script >*@
+
+@Html.Partial("~/Areas/Administration/Views/Admin/_AdminNavigation.cshtml")
+<div class="row">
+    <div class="col-lg-offset-3 col-md-2">
+        <h4>Edit Shop Details</h4>
+    </div>
+ 
+</div>
+
+
+@using (Html.BeginForm("EditShopData", "Admin", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    @*@Html.AntiForgeryToken()*@
+   
+    <div class="form-horizontal">
+       
+       
+       
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+               
+           Shop Name
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+                    <input type="text" required value="@Model.CategoryData.Name" name="Name" class="form-control Name"   id="Name">
+                    @*@Html.ValidationMessageFor(model => model.CategoryData.Name, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                 Shop Name
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+                    <input type="text" required value="@Model.CategoryData.Description" name="Description" class="form-control Description"  id="Description"/>
+                    @*@Html.ValidationMessageFor(model => model.CategoryData.Description, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                IsActive
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    @if (Model.CategoryData.IsActive)
+                {
+                        <input type="checkbox" required value="true" name="IsActive" checked class="form-control IsActive"  id="IsActive"/>
+
+                    }
+                    else
+                    {
+                        <input type="checkbox" required value="false" name="IsActive" class="form-control IsActive"  id="IsActive" />
+                    }
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+           Shop Email Address
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    <input type="email" required value="@Model.logindata.ShopEmaill" name="ShopEmaill" class="form-control ShopEmaill" for="ShopEmaill"  id="ShopEmaill" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                 Shop Address
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    <input type="text" required value="@Model.logindata.ShopAddress" name="ShopAddress" class="form-control ShopAddress" id="ShopAddress" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+               Shop Telephone Number (+94)
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    <input type="number" max="999999999" min="100000000"  required="" value="@Model.logindata.ShopTelephoneNumber" name="ShopTelephoneNumber" class="form-control ShopTelephoneNumber" id="ShopTelephoneNumber" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                Shop Image Url
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    <input type="file" id="file" name="file" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+                    <input type="text" value="@Model.CategoryData.Shopid" name="Shopid" hidden />
+                    <input type="submit" value="Update" class="btn btn-danger"  id="update-form"/>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+}

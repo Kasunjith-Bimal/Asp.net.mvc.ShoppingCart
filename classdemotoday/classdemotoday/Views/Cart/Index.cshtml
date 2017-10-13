@@ -1,0 +1,100 @@
+﻿@model IEnumerable<classdemotoday.Models.ViewModels.CartItemViewModel>
+
+
+<div class="container">
+    <div class="row">
+
+       <h4> Items Count: @Session["Count"]</h4>
+       <h4>Total :@Session["Total"]</h4> 
+
+    </div>
+   
+
+    @foreach (var Cartitem in @Model)
+    {
+
+
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                <img src="@ViewBag.ImageUrl@Cartitem.item.ImageURL" width="100%">
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+                @Html.DisplayFor(modelitem => Cartitem.item.ItemCode)
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                @Html.DisplayFor(modelitem => Cartitem.item.Name)
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                @Html.DisplayFor(modelitem => Cartitem.item.Description)
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12 cartUnitPrice">
+                @Html.DisplayFor(modelitem => Cartitem.item.UnitPrice)
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12 cartUnitPrice">
+                @using (Html.BeginForm("Update", "Cart",FormMethod.Post))
+                {
+                    <input type="hidden" value="@Cartitem.item.Id" id="itemid" name="itemid" />
+                    <input type="text" value="@Cartitem.quantity" class="form-control" id="qty" name="qty" />
+                    <button type="submit" class="btn btn-link">
+                        <span class="glyphicon glyphicon-hand-up"></span>  Update
+                    </button>
+                }
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12 cartUnitPrice">
+                @Html.DisplayFor(modelitem => Cartitem.subTotal)
+            </div>
+            <hr/>
+        </div>
+    }
+    <hr />
+
+    <div class="row">
+
+        <div class="col-lg-offset-9 col-lg-2 col-md-offset-9 col-md-2 col-sm-12 col-xs-12">
+
+           <h4>Total :@Session["Total"]</h4>
+          
+        </div>
+
+
+    </div>
+    <div class="row">
+
+        <div class="col-lg-offset-9 col-lg-2 col-md-offset-9 col-md-2 col-sm-12 col-xs-12">
+
+        
+            @using (Html.BeginForm("Index","Home",FormMethod.Post))
+            {
+                <button type="submit" class="btn btn-success">
+                  Continue Shopping
+                </button>
+            }
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-offset-9 col-lg-2 col-md-offset-9 col-md-2 col-sm-12 col-xs-12">
+
+
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                <button type="submit" class="btn btn-info">
+                    Check Out
+                </button>
+            }
+        </div>
+
+
+    </div>
+</div>
+
+

@@ -1,0 +1,119 @@
+﻿@model classdemotoday.Models.ViewModels.ShopViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        /*.boxPictures {
+            border: 1px solid black;
+            border-radius: 5px;
+            max-height: 900px;
+            height: 800px;
+        }*/
+        .x{
+
+            background-color:deeppink;
+            color:wheat;
+            
+        }
+        .Shopdata {
+            margin-bottom: 15px;
+           
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("~/Areas/Shop/Views/Shared/_ShopNavigation.cshtml")
+
+
+    <div id="tagetid">
+        <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12">
+            <div class="boxPictures">
+
+                <img src="~/360/Images/Shop/@Model.CategoryData.ImageURL">
+
+            </div>
+
+
+        </div>
+        <div class="col-lg-7 col-md-7 col-xs-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 x">
+                Shop Name
+                <hr />
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 Shopdata ">
+                @Model.CategoryData.Name
+
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 x">
+                Shop Description
+                <hr />
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 Shopdata">
+                @Model.CategoryData.Description
+
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 x">
+                Shop Email Address
+                <hr />
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 Shopdata">
+                @Model.logindata.ShopEmaill
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 x">
+                Shop  Address
+                <hr />
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 Shopdata">
+                @Model.logindata.ShopAddress
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 x">
+                Shop  Telephone Number
+                <hr />
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 Shopdata">
+                @Model.logindata.ShopTelephoneNumber
+
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 Shopdata">
+                @*@Ajax.BeginForm("EditShopDetails", new AjaxOptions
+                    {
+                        UpdateTargetId = "tagetid",
+                        InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                        HttpMethod = "GET",
+
+                    }){
+                           <input type="hidden" value="@Model.CategoryData.Shopid" name="id" />
+                           <input type="submit" value="Edit Shop Details"  class="btn btn-default"/>
+                       }*@
+
+                @using (Ajax.BeginForm("EditShopDetails", "Shop", new AjaxOptions
+                {//GetPatients is name of method in PatientController
+                    UpdateTargetId = "tagetid",
+                    InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                    HttpMethod = "GET",
+                }))
+                {
+                    <input type="hidden" value="@Model.CategoryData.Shopid" name="id" />
+                    <input type="submit" value="Edit Shop Details" class="btn btn-default" />
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

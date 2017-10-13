@@ -1,0 +1,47 @@
+﻿<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            Sort Options
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+
+            <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+            @Html.ActionLink("Category", "Index", new {
+         
+           sortoftion ="category",
+           sortoder =Request.QueryString["sortoder"]== "asc" ? "desc": "asc"
+         
+       })
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+            @Html.ActionLink("Name", "Index", new
+       {
+
+           sortoftion = "name",
+           sortoder = Request.QueryString["sortoder"] == "asc" ? "desc" : "asc",
+           categoryid = Request.QueryString["categoryid"],
+           itemPage = Request.QueryString["itemPage"],
+           catPage = Request.QueryString["catPage"]
+       })
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <span class="glyphicon glyphicon-sort-by-attributes"></span>
+            @Html.ActionLink("Price", "Index", new
+       {
+
+           sortoftion = "price",
+           sortoder = Request.QueryString["sortoder"] == "asc" ? "desc" : "asc",
+           categoryid = Request.QueryString["categoryid"],
+           itemPage = Request.QueryString["itemPage"],
+           catPage = Request.QueryString["catPage"]
+       })
+        </div>
+
+
+    </div>
+</div>

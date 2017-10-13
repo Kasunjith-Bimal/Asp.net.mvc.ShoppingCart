@@ -1,0 +1,26 @@
+﻿@model classdemotoday.Models.ViewModels.AdminViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+</head>
+<body>
+    @Html.Partial("~/Areas/Administration/Views/Admin/_AdminNavigation.cshtml")
+    <div id="targetDiv">
+      
+        @Html.Partial("~/Areas/Administration/Views/Admin/_ActiveShopList.cshtml", Model.Categories)
+
+    </div>
+       
+</body>
+</html>

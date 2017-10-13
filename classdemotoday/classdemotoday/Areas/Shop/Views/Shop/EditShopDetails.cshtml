@@ -1,0 +1,144 @@
+﻿@model classdemotoday.Models.ViewModels.ShopViewModel
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("EditShopDetails", "Shop", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                Shop Name
+            </div>
+               
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+                    <input type="text" value="@Model.CategoryData.Name" name="Name" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                Shop Description
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+                    <input type="text" value="@Model.CategoryData.Description" name="Description" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                Shop Activation
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    @if (Model.CategoryData.IsActive)
+                {
+                        <input type="checkbox" value="true" name="IsActive" checked  class="form-control"/>
+
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="false" name="IsActive" class="form-control" />
+                    }
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                Shop Email Address
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    <input type="text" value="@Model.logindata.ShopEmaill" name="ShopEmaill" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+      
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                Shop  Address
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    <input type="text" value="@Model.logindata.ShopAddress" name="ShopAddress" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                Shop  Telephone Number
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    <input type="text" value="@Model.logindata.ShopTelephoneNumber" name="ShopTelephoneNumber" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+    
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+                Shop Image Url
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+
+                    <input type="file" id="file" name="file" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+     
+
+       
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-2">
+              
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-offset-3 col-md-5">
+                    <input type="text" value="@Model.CategoryData.Shopid" name="Shopid" hidden />
+                    <input type="submit" value="Update" class="btn btn-danger" />
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+}
+

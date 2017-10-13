@@ -1,0 +1,28 @@
+﻿@model IEnumerable<classdemotoday.Areas.Common.Models.Category>
+@using classdemotoday.Areas.Common.Models
+<style>
+
+
+
+</style>
+
+
+<ul class="list-group">
+
+
+    @Html.ActionLink("All category", "Index", "Home", null, new { @class = "list-group-item active" })
+
+    @foreach (Category cat in Model)
+    {
+        @Html.ActionLink(@cat.Name, "Index", "Home", new { categoryid = @cat.Id,
+                                                       cateory = @cat.Id,
+                                                       catPage = Request.QueryString["catPage"],
+                                                      
+   
+   
+   }, new { @class = "list-group-item" })
+       
+
+    }
+
+</ul>

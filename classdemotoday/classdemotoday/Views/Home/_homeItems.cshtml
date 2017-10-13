@@ -1,0 +1,13 @@
+﻿@model IEnumerable<classdemotoday.Areas.Common.Models.ItemDetail>
+
+<div class="row">
+
+    @foreach (var item in @Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 itemContainer">
+            @Html.Partial("_singleItem", item)
+        </div>
+    }
+
+
+</div>

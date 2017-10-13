@@ -1,0 +1,10 @@
+﻿.itemContainer{
+
+    border:1px #f2f2f2 solid;
+    max-width:450px;
+    }
+
+.itemContainer:hover{
+
+    border:1px #ccc solid;
+}
